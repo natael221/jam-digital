@@ -1,24 +1,22 @@
 const express = require('express');
-const fs = require('fs');
+const fs = require('fs/promises');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const getRandomQuote = () => {
+const getRandomQuote = async () => {
     try {
-        // Log before reading the file
-        console.log('Attempting to read quotes.json');
-        const quotes = JSON.parse(fs.readFileSync('quotes.json', 'utf8'));
+        const data = await fs.readFile('quotes.json', 'utf8');
+        const quotes = JSON.parse(data);
         const randomIndex = Math.floor(Math.random() * quotes.length);
         return quotes[randomIndex];
     } catch (error) {
-        // Log the error for debugging
         console.error('Error reading quotes.json:', error);
         return 'Failed to load quotes.';
     }
 };
 
-app.get('/quote', (req, res) => {
-    const quote = getRandomQuote();
+app.get('/quote', async (req, res) => {
+    const quote = await getRandomQuote();
     res.json({ quote });
 });
 
