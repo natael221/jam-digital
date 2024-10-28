@@ -6,6 +6,6 @@
     "start": "node api/quote.js"
   },
   "dependencies": {
-    "express": "^4.17.1" // Pastikan express ada di sini
+    "express": "^4.17.1"
   }
 }
