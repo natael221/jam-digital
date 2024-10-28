@@ -1,11 +1,11 @@
 {
-  "name": "jamdigital",
+  "name": "jam-digital",
   "version": "1.0.0",
   "main": "api.js",
   "scripts": {
     "start": "node api.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   }
 }
