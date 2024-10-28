@@ -4,9 +4,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const getRandomQuote = () => {
-    const quotes = JSON.parse(fs.readFileSync('quotes.json'));
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    return quotes[randomIndex];
+    try {
+        const quotes = JSON.parse(fs.readFileSync('quotes.json'));
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        return quotes[randomIndex];
+    } catch (error) {
+        console.error('Error reading quotes.json:', error);
+        return 'Failed to load quotes.';
+    }
 };
 
 app.get('/quote', (req, res) => {
