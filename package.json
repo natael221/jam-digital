@@ -1,7 +1,5 @@
 {
-  "name": "jam-digital",
+  "name": "jamdigitalapi",
   "version": "1.0.0",
-  "dependencies": {
-    "fs": "0.0.1-security"
-  }
+  "dependencies": {}
 }
