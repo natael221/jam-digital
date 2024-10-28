@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = (req, res) => {
-  fs.readFile('quotes.json', 'utf8', (err, data) => {
+  fs.readFile('./quotes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).send('Error reading quotes file.');
     }
