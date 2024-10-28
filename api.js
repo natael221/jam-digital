@@ -11,7 +11,7 @@ const getRandomQuote = async () => {
         return quotes[randomIndex];
     } catch (error) {
         console.error('Error reading quotes.json:', error);
-        return 'Failed to load quotes.';
+        return 'Peler.';
     }
 };
 
