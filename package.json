@@ -1,5 +1,12 @@
 {
-  "name": "jamdigitalapi",
+  "name": "jam-digital",
   "version": "1.0.0",
-  "dependencies": {}
+  "main": "api/quote.js",
+  "scripts": {
+    "start": "node api/quote.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security"
+  }
 }
