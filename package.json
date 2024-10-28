@@ -1,9 +1,9 @@
 {
-  "name": "jam-digital",
+  "name": "apiquotes",
   "version": "1.0.0",
-  "main": "api/quote.js",
+  "main": "api.js",
   "scripts": {
-    "start": "node api/quote.js"
+    "start": "node api.js"
   },
   "dependencies": {
     "express": "^4.17.1"
