@@ -1,22 +1,24 @@
 const express = require('express');
-const fs = require('fs/promises');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const getRandomQuote = async () => {
+const getRandomQuote = () => {
     try {
-        const data = await fs.readFile('quotes.json', 'utf8');
-        const quotes = JSON.parse(data);
+        // Gunakan path.join untuk memastikan path yang benar
+        const filePath = path.join(__dirname, 'quotes.json');
+        const quotes = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         const randomIndex = Math.floor(Math.random() * quotes.length);
         return quotes[randomIndex];
     } catch (error) {
         console.error('Error reading quotes.json:', error);
-        return 'Peler.';
+        return 'Failed to load quotes.';
     }
 };
 
-app.get('/quote', async (req, res) => {
-    const quote = await getRandomQuote();
+app.get('/quote', (req, res) => {
+    const quote = getRandomQuote();
     res.json({ quote });
 });
 
